@@ -1,0 +1,358 @@
+* {
+	box-sizing: border-box;
+}
+
+
+html {
+	font-size: 100%;
+}
+
+body {
+	max-width: 100vw;
+    height: 100vh;
+	background-color: #001B52;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "TradeGothicNextLTPro-Rg";
+    src: url("https://db.onlinewebfonts.com/t/2d9ea6f12cd1eb00accda1a09c7be7ff.eot");
+    src: url("https://db.onlinewebfonts.com/t/2d9ea6f12cd1eb00accda1a09c7be7ff.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/2d9ea6f12cd1eb00accda1a09c7be7ff.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/2d9ea6f12cd1eb00accda1a09c7be7ff.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/2d9ea6f12cd1eb00accda1a09c7be7ff.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/2d9ea6f12cd1eb00accda1a09c7be7ff.svg#TradeGothicNextLTPro-Rg")format("svg");
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "TradeGothicNextLTPro-Rg", "system-ui", "sans-serif";
+}
+
+p {
+    font-family: "Garamond", "system-ui", "sans-serif";
+}
+
+/* Defining grid areas */
+
+nav {
+	grid-area: nav;
+}
+header {
+	grid-area: header;
+}
+.teaser {
+	grid-area: teaser;
+}
+main {
+	grid-area: main;
+}
+aside {
+	grid-area: aside;
+}
+.team {
+	grid-area: team;
+}
+
+.socials {
+    grid-area: socials;
+}
+
+footer {
+	grid-area: footer;
+}
+
+/* Grid container and areas */
+
+.grid-container {
+	display: grid;
+	grid-template-areas:
+		"nav"
+		"header"
+		"teaser"
+		"main"
+		"aside"
+		"team"
+        "socials"
+		"footer";   
+	grid-gap: .5rem;
+}
+
+button {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: TradeGothicNextLTPro-Hv,sans-serif;
+    margin: 20px;
+    padding: 16px 20px 16px 16px;
+    text-transform: uppercase;
+    transition: all .1s ease-in-out;
+
+}
+
+ /* Media queries for the grid container */
+
+@media only screen and (min-width: 550px) {
+	.grid-container {
+		grid-template-columns: repeat(2,1fr);
+		grid-template-areas:
+			"nav nav"
+			"header header"
+			"teaser teaser"
+			"main main"
+			"aside ."
+			"team team"
+            "socials" "socials"
+			"footer footer";
+		grid-gap: .75rem;
+	}
+}
+
+@media only screen and (min-width: 800px) {
+	.grid-container {
+		grid-template-columns: repeat(3,1fr);
+		grid-template-areas:
+			"nav nav nav"
+			"header header header"
+			"teaser teaser teaser"
+			"aside main main"
+			"team team team"
+            "socials socials socials"
+			"footer footer footer";
+		grid-gap: 1rem;
+	}
+}
+
+/* Grid items */
+
+.grid-box {
+	padding: .5rem;
+	font-size: 1.25rem;
+	border-radius: .125rem;
+}
+
+header.grid-box {
+    background-image: url("header-bkgd.jpeg");
+    background-position: right 50% bottom 59%;
+    background-image:
+    linear-gradient(45deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.5)), 
+          url('header-bkgd.jpeg');
+    height: 50vh;
+
+}
+
+header.grid-box h1, header.grid-box p {
+    width: 35%;
+}
+
+
+
+
+/* Media queries for the grid items */
+
+@media only screen and (min-width: 550px) {
+	.grid-box {
+		padding: .75rem;
+		font-size: 1.5rem;
+	}
+}
+@media only screen and (min-width: 800px) {
+	.grid-box {
+		padding: 1rem;
+		font-size: 1.75rem;
+	}
+}
+
+/* Subgrid areas */
+
+.footer-box-1 {
+	grid-area: footer-box-1;
+}
+.footer-box-2 {
+	grid-area: footer-box-2;
+}
+.footer-box-3 {
+	grid-area: footer-box-3;
+}
+.footer-box-4 {
+	grid-area: footer-box-4;
+}
+
+
+/* Nested grid container */
+
+.sub-grid {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	grid-template-areas:
+		"footer-box-1 footer-box-2"
+		"footer-box-3 footer-box-4";
+	grid-gap: 1rem;
+}
+
+.sub-grid-box ul {
+    list-style-type: none;
+    line-height: 1.5;
+}
+
+.sub-grid-box h5 {
+    text-transform: uppercase;
+    margin: 30px;
+    padding: 16px;
+   
+}
+
+/* Media query for the nested grid container */
+
+@media only screen and (min-width: 800px) {
+	.sub-grid {
+		grid-template-columns: repeat(4,1fr);
+		grid-template-areas:
+			"footer-box-1 footer-box-2 footer-box-3 footer-box-4";
+	}
+}
+/* Sub-grid items */
+
+.sub-grid-box {
+	padding: .5rem;
+	color: #fff;
+}
+
+.grid-nav-main .logo {
+    background: url(logo.svg) no-repeat;
+}
+
+/* Grid nav */
+
+.grid-nav-main {
+	display: grid;
+	grid-template-columns: repeat(3,minmax(75px,1fr)); /* 3 links in a row */
+	grid-gap: .25rem;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	list-style: none;
+}
+
+
+/* Media queries for the grid nav */
+
+@media only screen and (min-width: 380px) {
+	.grid-nav-main {
+		grid-template-columns: repeat(3,minmax(100px,1fr)); /* 3 links in a row */
+	}
+}
+@media only screen and (min-width: 550px) {
+	.grid-nav-main {
+		grid-template-columns: repeat(auto-fit,minmax(75px,1fr)); /* All links in one row */
+	}
+}
+
+/*grid nav links */
+
+.grid-nav-main a {
+	display: block;
+	margin: 0;
+	padding: .5rem 0;
+	font-size: .8rem;
+	line-height: 1;
+	text-decoration: none;
+	color: #333;
+    background-position: 100% 100%;
+    background-size: 201% 3px;
+    border: none;
+    font-family: TradeGothicNextLTPro-Hv,sans-serif;
+    letter-spacing: .8px;
+    margin: 30px 0;
+    padding: 5px 0;
+    transition: all .2s ease-in-out;
+    text-transform: uppercase;
+    color: #FFF9EA;
+}
+
+.grid-nav-main .logo a:hover {
+    background: none;
+}
+
+.grid-nav-main a:hover {
+	background-color: #333;
+	color: #D3D3D3;
+    background: linear-gradient(270deg,#fff9ea 50%,#3EACF6 0);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 201% 2px;
+    border: none;
+    color: #3EACF6;
+    text-decoration: none;
+}
+/* Media query for the grid nav links */
+
+@media only screen and (min-device-width: 800px) {
+	.grid-nav-main a {
+		padding: 1rem;
+		font-size: 1rem;
+		line-height: 1.2;
+		text-align: center;
+	}
+}
+
+/* HTML elements */
+
+.teaser {
+	color: #E5E5E5;
+    text-align: center;
+}
+main {
+	background-color: #FFF9EA;
+	color: #1A1A1A;
+}
+
+
+aside {
+    text-align: center;
+}
+
+img.support {
+    border: solid 8px #074CC9;
+}
+
+main.grid-box.after-action {
+    line-height: 1.3;
+    border: solid 8px #074CC9;
+}
+
+aside h3 {
+    color: #E5E5E5;
+}
+.team {
+	background-color: #074CC9; 
+	color: #1A1A1A;
+    text-align: center;
+}
+
+.team img {
+    border: solid 4px #131E83;
+}
+
+.socials {
+    color: #131E83;
+    text-align: center;
+    background: #FFF9EA;
+    
+}
+
+.grid-box.socials img {
+    margin-right: 30px;
+}
+
+.sub-grid-box a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+header,
+footer {
+    color: #F2F2F2;
+}
