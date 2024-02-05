@@ -11,6 +11,7 @@ body {
 	max-width: 100vw;
     height: 100vh;
 	background-color: #001B52;
+	color:#00212e;
     margin: 0;
 }
 
@@ -30,6 +31,8 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
     font-family: "Garamond", "system-ui", "sans-serif";
+	font-size: 20px;
+	line-height: 1.7;
 }
 
 /* Defining grid areas */
@@ -72,29 +75,40 @@ footer {
 		"main"
 		"aside"
 		"team"
-        "socials"
-		"footer";   
+		"socials"
+		"footer";
 	grid-gap: .5rem;
 }
 
 button {
-    background: transparent;
-    border: 2px solid #ffffff;
-    color: #ffffff;
+	background: url(arrow-red.svg) no-repeat;
+    background-position: 83% center;
+    border: 2px solid #e04b1a;
+    color: #e04b1a;
     cursor: pointer;
     font-family: TradeGothicNextLTPro-Hv,sans-serif;
-    margin: 20px;
-    padding: 16px 20px 16px 16px;
+    font-size: 14px;
+	margin-top: 10px;
+    padding: 16px 42px 16px 16px;
     text-transform: uppercase;
     transition: all .1s ease-in-out;
 
+
+}
+
+.button:hover {
+	background: #e04b1a url(arrow.svg) no-repeat;
+    background-position: 83% 40%;
+    border: 2px solid #e04b1a;
+    color: #fff;
 }
 
  /* Media queries for the grid container */
 
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 375x) and (max-width:768px) {
 	.grid-container {
 		grid-template-columns: repeat(2,1fr);
+
 		grid-template-areas:
 			"nav nav"
 			"header header"
@@ -102,22 +116,24 @@ button {
 			"main main"
 			"aside ."
 			"team team"
-            "socials" "socials"
+			"socials"
+			"socials"
 			"footer footer";
 		grid-gap: .75rem;
+		display: block;
 	}
 }
 
 @media only screen and (min-width: 800px) {
 	.grid-container {
-		grid-template-columns: repeat(3,1fr);
+		grid-template-columns: repeat(1,1fr);
 		grid-template-areas:
 			"nav nav nav"
 			"header header header"
 			"teaser teaser teaser"
 			"aside main main"
 			"team team team"
-            "socials socials socials"
+			"socials socials socials"
 			"footer footer footer";
 		grid-gap: 1rem;
 	}
@@ -129,6 +145,7 @@ button {
 	padding: .5rem;
 	font-size: 1.25rem;
 	border-radius: .125rem;
+	width: 1;
 }
 
 header.grid-box {
@@ -221,14 +238,15 @@ header.grid-box h1, header.grid-box p {
 }
 
 .grid-nav-main .logo {
-    background: url(logo.svg) no-repeat;
+    /* background: url(logo.svg) no-repeat; */
 }
 
 /* Grid nav */
 
 .grid-nav-main {
 	display: grid;
-	grid-template-columns: repeat(3,minmax(75px,1fr)); /* 3 links in a row */
+	/* grid-template-columns: repeat(3,minmax(75px,1fr)); */
+	grid-template-columns: repeat(4,minmax(100px,1fr));
 	grid-gap: .25rem;
 	justify-content: center;
 	align-items: center;
@@ -236,17 +254,27 @@ header.grid-box h1, header.grid-box p {
 	list-style: none;
 }
 
+/* Media queries for grid box */
+
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+	.subheading {
+		display: none;; 
+	}
+}
+
+
 
 /* Media queries for the grid nav */
 
-@media only screen and (min-width: 380px) {
+@media only screen and (min-width: 375px) {
 	.grid-nav-main {
-		grid-template-columns: repeat(3,minmax(100px,1fr)); /* 3 links in a row */
+		/* grid-template-columns: repeat(3,minmax(100px,1fr)); */
 	}
 }
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 768px) {
 	.grid-nav-main {
-		grid-template-columns: repeat(auto-fit,minmax(75px,1fr)); /* All links in one row */
+		/* grid-template-columns: repeat(auto-fit,minmax(75p,1fr)); */
+		/* grid-template-columns: repeat(3,minmax(100px,1fr)); */
 	}
 }
 
@@ -265,9 +293,9 @@ header.grid-box h1, header.grid-box p {
     border: none;
     font-family: TradeGothicNextLTPro-Hv,sans-serif;
     letter-spacing: .8px;
-    margin: 30px 0;
+    margin: 40px 0;
     padding: 5px 0;
-    transition: all .2s ease-in-out;
+    transition: all .4s ease-in-out;
     text-transform: uppercase;
     color: #FFF9EA;
 }
@@ -316,11 +344,12 @@ aside {
 
 img.support {
     border: solid 8px #074CC9;
+	display: block;
 }
 
 main.grid-box.after-action {
-    line-height: 1.3;
     border: solid 8px #074CC9;
+	text-indent: 20px;
 }
 
 aside h3 {
